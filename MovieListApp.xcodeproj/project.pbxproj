@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		931A8280256C1DA700629A56 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A827F256C1DA700629A56 /* UIView+AutoLayout.swift */; };
+		931A8288256C1FE300629A56 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A8287256C1FE300629A56 /* XibView.swift */; };
+		931A828E256C213600629A56 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A828D256C213600629A56 /* Localizations.swift */; };
 		93D3F2E3256C1A2800739DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3F2E2256C1A2800739DE5 /* AppDelegate.swift */; };
 		93D3F2E5256C1A2800739DE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3F2E4256C1A2800739DE5 /* SceneDelegate.swift */; };
-		93D3F2E7256C1A2800739DE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3F2E6256C1A2800739DE5 /* ViewController.swift */; };
-		93D3F2EA256C1A2800739DE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93D3F2E8256C1A2800739DE5 /* Main.storyboard */; };
+		93D3F2E7256C1A2800739DE5 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3F2E6256C1A2800739DE5 /* MovieListViewController.swift */; };
 		93D3F2EC256C1A2B00739DE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93D3F2EB256C1A2B00739DE5 /* Assets.xcassets */; };
 		93D3F2EF256C1A2B00739DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93D3F2ED256C1A2B00739DE5 /* LaunchScreen.storyboard */; };
 		93D3F2FA256C1A2B00739DE5 /* MovieListAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3F2F9256C1A2B00739DE5 /* MovieListAppTests.swift */; };
@@ -35,11 +37,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		931A827F256C1DA700629A56 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		931A8287256C1FE300629A56 /* XibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
+		931A828D256C213600629A56 /* Localizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizations.swift; sourceTree = "<group>"; };
 		93D3F2DF256C1A2800739DE5 /* MovieListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93D3F2E2256C1A2800739DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93D3F2E4256C1A2800739DE5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		93D3F2E6256C1A2800739DE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		93D3F2E9256C1A2800739DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		93D3F2E6256C1A2800739DE5 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		93D3F2EB256C1A2B00739DE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93D3F2EE256C1A2B00739DE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93D3F2F0256C1A2B00739DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +80,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		931A827D256C1D6800629A56 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				931A827F256C1DA700629A56 /* UIView+AutoLayout.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		931A827E256C1D6F00629A56 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		931A828C256C211A00629A56 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				931A828D256C213600629A56 /* Localizations.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		93D3F2D6256C1A2800739DE5 = {
 			isa = PBXGroup;
 			children = (
@@ -99,13 +126,14 @@
 		93D3F2E1256C1A2800739DE5 /* MovieListApp */ = {
 			isa = PBXGroup;
 			children = (
-				93D3F2E2256C1A2800739DE5 /* AppDelegate.swift */,
-				93D3F2E4256C1A2800739DE5 /* SceneDelegate.swift */,
-				93D3F2E6256C1A2800739DE5 /* ViewController.swift */,
-				93D3F2E8256C1A2800739DE5 /* Main.storyboard */,
-				93D3F2EB256C1A2B00739DE5 /* Assets.xcassets */,
-				93D3F2ED256C1A2B00739DE5 /* LaunchScreen.storyboard */,
-				93D3F2F0256C1A2B00739DE5 /* Info.plist */,
+				93D3F315256C1A9100739DE5 /* Assets */,
+				93D3F31C256C1B7200739DE5 /* Boiler */,
+				93D3F31B256C1B5F00739DE5 /* Components */,
+				93D3F316256C1A9600739DE5 /* Configuration */,
+				931A828C256C211A00629A56 /* Constants */,
+				931A827D256C1D6800629A56 /* Helpers */,
+				931A827E256C1D6F00629A56 /* Managers */,
+				93D3F318256C1B2700739DE5 /* Screens */,
 			);
 			path = MovieListApp;
 			sourceTree = "<group>";
@@ -126,6 +154,72 @@
 				93D3F306256C1A2B00739DE5 /* Info.plist */,
 			);
 			path = MovieListAppUITests;
+			sourceTree = "<group>";
+		};
+		93D3F315256C1A9100739DE5 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				93D3F2EB256C1A2B00739DE5 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		93D3F316256C1A9600739DE5 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				93D3F2F0256C1A2B00739DE5 /* Info.plist */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		93D3F317256C1B1A00739DE5 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				93D3F2ED256C1A2B00739DE5 /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		93D3F318256C1B2700739DE5 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				93D3F317256C1B1A00739DE5 /* Launch */,
+				93D3F31A256C1B3700739DE5 /* MovieDetails */,
+				93D3F319256C1B3200739DE5 /* MovieList */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		93D3F319256C1B3200739DE5 /* MovieList */ = {
+			isa = PBXGroup;
+			children = (
+				93D3F2E6256C1A2800739DE5 /* MovieListViewController.swift */,
+			);
+			path = MovieList;
+			sourceTree = "<group>";
+		};
+		93D3F31A256C1B3700739DE5 /* MovieDetails */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MovieDetails;
+			sourceTree = "<group>";
+		};
+		93D3F31B256C1B5F00739DE5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				931A8287256C1FE300629A56 /* XibView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		93D3F31C256C1B7200739DE5 /* Boiler */ = {
+			isa = PBXGroup;
+			children = (
+				93D3F2E2256C1A2800739DE5 /* AppDelegate.swift */,
+				93D3F2E4256C1A2800739DE5 /* SceneDelegate.swift */,
+			);
+			path = Boiler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +327,6 @@
 			files = (
 				93D3F2EF256C1A2B00739DE5 /* LaunchScreen.storyboard in Resources */,
 				93D3F2EC256C1A2B00739DE5 /* Assets.xcassets in Resources */,
-				93D3F2EA256C1A2800739DE5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +351,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93D3F2E7256C1A2800739DE5 /* ViewController.swift in Sources */,
+				93D3F2E7256C1A2800739DE5 /* MovieListViewController.swift in Sources */,
+				931A8280256C1DA700629A56 /* UIView+AutoLayout.swift in Sources */,
+				931A828E256C213600629A56 /* Localizations.swift in Sources */,
 				93D3F2E3256C1A2800739DE5 /* AppDelegate.swift in Sources */,
+				931A8288256C1FE300629A56 /* XibView.swift in Sources */,
 				93D3F2E5256C1A2800739DE5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,14 +392,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		93D3F2E8256C1A2800739DE5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				93D3F2E9256C1A2800739DE5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		93D3F2ED256C1A2B00739DE5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -438,7 +526,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7CAL8VZ783;
-				INFOPLIST_FILE = MovieListApp/Info.plist;
+				INFOPLIST_FILE = MovieListApp/Configuration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +545,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7CAL8VZ783;
-				INFOPLIST_FILE = MovieListApp/Info.plist;
+				INFOPLIST_FILE = MovieListApp/Configuration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
