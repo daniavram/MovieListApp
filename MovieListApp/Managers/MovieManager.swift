@@ -91,12 +91,7 @@ class LocalMovieManager: MovieManagerProtocol {
     ]
 
     func fetchAll(completion: @escaping (Result<[Movie], Error>) -> Void) {
-        DispatchQueue(label: "LocalMovieManager").asyncAfter(
-            deadline: .now() + 3,
-            execute: {
-                completion(.success(self.page0))
-            }
-        )
+        completion(.success(page0))
     }
 
 }

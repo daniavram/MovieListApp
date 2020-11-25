@@ -9,6 +9,20 @@ import UIKit
 
 class MovieListViewController: UIViewController {
 
+    let contentGenerator: MovieListContentGenerator
+
+    init(
+        contentGenerator: MovieListContentGenerator = MovieListContentGenerator()
+    ) {
+        self.contentGenerator = contentGenerator
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        self.contentGenerator = MovieListContentGenerator()
+        super.init(coder: coder)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .backgroundPage
@@ -17,12 +31,12 @@ class MovieListViewController: UIViewController {
     }
 
     private func setupNavBar() {
-        title = .titleMoviesList
+        title = contentGenerator.generateTitle()
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationItem.setRightBarButton(
             UIBarButtonItem(
-                title: .buttonTitleSort,
+                title: contentGenerator.generateRightBarButtonTitle(),
                 style: .plain,
                 target: self,
                 action: #selector(buttonTapSort)
@@ -31,7 +45,7 @@ class MovieListViewController: UIViewController {
         )
     }
 
-    private func refreshItems(with _: SortType) {
+    private func refreshItems(with _: MovieListContentGenerator.SortType) {
         // TODO:
     }
 
@@ -70,9 +84,4 @@ class MovieListViewController: UIViewController {
         present(sheet, animated: true, completion: nil)
     }
 
-}
-
-enum SortType {
-    case title
-    case releaseDate
 }

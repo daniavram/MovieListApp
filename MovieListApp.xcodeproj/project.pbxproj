@@ -18,6 +18,9 @@
 		9312D6E0256D5FA1004256F1 /* Spider Man.png in Resources */ = {isa = PBXBuildFile; fileRef = 9312D6DB256D5FA1004256F1 /* Spider Man.png */; };
 		9312D6E6256D6B4A004256F1 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312D6E5256D6B4A004256F1 /* NavigationController.swift */; };
 		9312D6EB256D6B8E004256F1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312D6EA256D6B8E004256F1 /* Colors.swift */; };
+		9312D6F0256D96DB004256F1 /* MovieListContentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312D6EF256D96DB004256F1 /* MovieListContentGenerator.swift */; };
+		9312D6F5256D9C2A004256F1 /* MovieListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312D6F4256D9C2A004256F1 /* MovieListCell.swift */; };
+		9312D6FA256D9ED3004256F1 /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312D6F9256D9ED3004256F1 /* UserInfoManager.swift */; };
 		931A8280256C1DA700629A56 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A827F256C1DA700629A56 /* UIView+AutoLayout.swift */; };
 		931A8288256C1FE300629A56 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A8287256C1FE300629A56 /* XibView.swift */; };
 		931A828E256C213600629A56 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A828D256C213600629A56 /* Localizations.swift */; };
@@ -59,6 +62,9 @@
 		9312D6DB256D5FA1004256F1 /* Spider Man.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Spider Man.png"; sourceTree = "<group>"; };
 		9312D6E5256D6B4A004256F1 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		9312D6EA256D6B8E004256F1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		9312D6EF256D96DB004256F1 /* MovieListContentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListContentGenerator.swift; sourceTree = "<group>"; };
+		9312D6F4256D9C2A004256F1 /* MovieListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListCell.swift; sourceTree = "<group>"; };
+		9312D6F9256D9ED3004256F1 /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
 		931A827F256C1DA700629A56 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		931A8287256C1FE300629A56 /* XibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
 		931A828D256C213600629A56 /* Localizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizations.swift; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				9312D6C9256D56B1004256F1 /* MovieManager.swift */,
+				9312D6F9256D9ED3004256F1 /* UserInfoManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -251,6 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				93D3F2E6256C1A2800739DE5 /* MovieListViewController.swift */,
+				9312D6EF256D96DB004256F1 /* MovieListContentGenerator.swift */,
+				9312D6F4256D9C2A004256F1 /* MovieListCell.swift */,
 			);
 			path = MovieList;
 			sourceTree = "<group>";
@@ -417,13 +426,16 @@
 			files = (
 				93D3F2E7256C1A2800739DE5 /* MovieListViewController.swift in Sources */,
 				9312D6EB256D6B8E004256F1 /* Colors.swift in Sources */,
+				9312D6F5256D9C2A004256F1 /* MovieListCell.swift in Sources */,
 				931A8280256C1DA700629A56 /* UIView+AutoLayout.swift in Sources */,
+				9312D6F0256D96DB004256F1 /* MovieListContentGenerator.swift in Sources */,
 				9312D6CA256D56B1004256F1 /* MovieManager.swift in Sources */,
 				931A828E256C213600629A56 /* Localizations.swift in Sources */,
 				9312D6E6256D6B4A004256F1 /* NavigationController.swift in Sources */,
 				93D3F2E3256C1A2800739DE5 /* AppDelegate.swift in Sources */,
 				931A8288256C1FE300629A56 /* XibView.swift in Sources */,
 				9312D6D0256D56E3004256F1 /* Movie.swift in Sources */,
+				9312D6FA256D9ED3004256F1 /* UserInfoManager.swift in Sources */,
 				93D3F2E5256C1A2800739DE5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
