@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="153" id="k3b-cJ-34Z" customClass="MovieDetailsDetailsCell" customModule="MovieListApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="435" height="153"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k3b-cJ-34Z" id="h4q-yg-MxL">
+                <rect key="frame" x="0.0" y="0.0" width="435" height="153"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDL-74-oug">
+                        <rect key="frame" x="24" y="30" width="387" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="i8h-Ow-RCd">
+                        <rect key="frame" x="24" y="69" width="387" height="54"/>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qDL-74-oug" firstAttribute="top" secondItem="h4q-yg-MxL" secondAttribute="top" constant="30" id="Aew-3n-O2C"/>
+                    <constraint firstAttribute="trailing" secondItem="qDL-74-oug" secondAttribute="trailing" constant="24" id="Fcn-dz-4Zw"/>
+                    <constraint firstAttribute="trailing" secondItem="i8h-Ow-RCd" secondAttribute="trailing" constant="24" id="Mr2-PE-XSg"/>
+                    <constraint firstItem="qDL-74-oug" firstAttribute="leading" secondItem="h4q-yg-MxL" secondAttribute="leading" constant="24" id="PVx-I5-zTO"/>
+                    <constraint firstItem="i8h-Ow-RCd" firstAttribute="leading" secondItem="h4q-yg-MxL" secondAttribute="leading" constant="24" id="Ynf-Ld-bJb"/>
+                    <constraint firstAttribute="bottom" secondItem="i8h-Ow-RCd" secondAttribute="bottom" constant="30" id="avI-lQ-9wW"/>
+                    <constraint firstItem="i8h-Ow-RCd" firstAttribute="top" secondItem="qDL-74-oug" secondAttribute="bottom" constant="18" id="yp0-45-P7D"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-315.21739130434787" y="95.424107142857139"/>
+        </tableViewCell>
+    </objects>
+</document>

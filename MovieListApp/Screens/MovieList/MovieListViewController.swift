@@ -7,17 +7,15 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController {
+class MovieListViewController: UITableViewController {
 
     let contentGenerator: MovieListContentGenerator
     let movieManager: MovieManagerProtocol
     let userInfoManager: UserInfoManager
 
+    private var dataSource: UITableViewDiffableDataSource<Int, MovieListCell.Content>!
     private var movies: [Movie] = []
     private var cellContents: [MovieListCell.Content] = []
-
-    let tableView = UITableView(frame: .zero, style: .grouped)
-    var dataSource: UITableViewDiffableDataSource<Int, MovieListCell.Content>!
 
     init(
         contentGenerator: MovieListContentGenerator = MovieListContentGenerator(),
@@ -64,7 +62,6 @@ class MovieListViewController: UIViewController {
         tableView.backgroundColor = .backgroundPage
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = UITableView.automaticDimension
-        tableView.pinToSafeArea(of: view)
         tableView.register(
             UINib(nibName: "MovieListCell", bundle: nil),
             forCellReuseIdentifier: "MovieListCell"
@@ -81,6 +78,7 @@ class MovieListViewController: UIViewController {
             }
         )
         tableView.dataSource = dataSource
+        tableView.delegate = self
     }
 
     private func generateSnapshot() {
@@ -146,6 +144,12 @@ class MovieListViewController: UIViewController {
             )
         )
         present(sheet, animated: true, completion: nil)
+    }
+
+    override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cellContent = cellContents.element(at: indexPath.row) else { return }
+        let details = MovieDetailsViewController()
+        navigationController?.pushViewController(details, animated: true)
     }
 
 }
