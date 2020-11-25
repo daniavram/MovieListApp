@@ -23,6 +23,8 @@
 		9312D6FA256D9ED3004256F1 /* UserInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312D6F9256D9ED3004256F1 /* UserInfoManager.swift */; };
 		9312D701256E6D0C004256F1 /* MovieListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9312D700256E6D0C004256F1 /* MovieListCell.xib */; };
 		9312D706256E7DE1004256F1 /* Array+ElementAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312D705256E7DE1004256F1 /* Array+ElementAt.swift */; };
+		9312D710256ECEE7004256F1 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312D70F256ECEE7004256F1 /* TextStyles.swift */; };
+		9312D715256ED063004256F1 /* TextStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312D714256ED063004256F1 /* TextStyle.swift */; };
 		931A8280256C1DA700629A56 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A827F256C1DA700629A56 /* UIView+AutoLayout.swift */; };
 		931A8288256C1FE300629A56 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A8287256C1FE300629A56 /* XibView.swift */; };
 		931A828E256C213600629A56 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A828D256C213600629A56 /* Localizations.swift */; };
@@ -69,6 +71,8 @@
 		9312D6F9256D9ED3004256F1 /* UserInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoManager.swift; sourceTree = "<group>"; };
 		9312D700256E6D0C004256F1 /* MovieListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListCell.xib; sourceTree = "<group>"; };
 		9312D705256E7DE1004256F1 /* Array+ElementAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+ElementAt.swift"; sourceTree = "<group>"; };
+		9312D70F256ECEE7004256F1 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
+		9312D714256ED063004256F1 /* TextStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyle.swift; sourceTree = "<group>"; };
 		931A827F256C1DA700629A56 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
 		931A8287256C1FE300629A56 /* XibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
 		931A828D256C213600629A56 /* Localizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizations.swift; sourceTree = "<group>"; };
@@ -140,8 +144,9 @@
 		931A827D256C1D6800629A56 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				931A827F256C1DA700629A56 /* UIView+AutoLayout.swift */,
 				9312D705256E7DE1004256F1 /* Array+ElementAt.swift */,
+				9312D714256ED063004256F1 /* TextStyle.swift */,
+				931A827F256C1DA700629A56 /* UIView+AutoLayout.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -158,8 +163,9 @@
 		931A828C256C211A00629A56 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				931A828D256C213600629A56 /* Localizations.swift */,
 				9312D6EA256D6B8E004256F1 /* Colors.swift */,
+				931A828D256C213600629A56 /* Localizations.swift */,
+				9312D70F256ECEE7004256F1 /* TextStyles.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -431,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9312D715256ED063004256F1 /* TextStyle.swift in Sources */,
 				93D3F2E7256C1A2800739DE5 /* MovieListViewController.swift in Sources */,
 				9312D6EB256D6B8E004256F1 /* Colors.swift in Sources */,
 				9312D6F5256D9C2A004256F1 /* MovieListCell.swift in Sources */,
@@ -443,6 +450,7 @@
 				931A8288256C1FE300629A56 /* XibView.swift in Sources */,
 				9312D6D0256D56E3004256F1 /* Movie.swift in Sources */,
 				9312D6FA256D9ED3004256F1 /* UserInfoManager.swift in Sources */,
+				9312D710256ECEE7004256F1 /* TextStyles.swift in Sources */,
 				93D3F2E5256C1A2800739DE5 /* SceneDelegate.swift in Sources */,
 				9312D706256E7DE1004256F1 /* Array+ElementAt.swift in Sources */,
 			);

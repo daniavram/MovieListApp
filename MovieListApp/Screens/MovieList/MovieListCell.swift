@@ -33,12 +33,9 @@ class MovieListCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-        titleLabel.textColor = .textDark
-        subtitleLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        subtitleLabel.textColor = .textLight
-        tagLabel.font = UIFont.systemFont(ofSize: 10, weight: .bold)
-        tagLabel.textColor = .textMedium
+        titleLabel.set(textStyle: .listCellTitle)
+        subtitleLabel.set(textStyle: .listCellSubtitle)
+        tagLabel.set(textStyle: .listCellTag)
         separator.backgroundColor = .separator
     }
 
