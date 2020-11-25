@@ -13,6 +13,7 @@ class MovieListViewController: UIViewController {
     let movieManager: MovieManagerProtocol
     let userInfoManager: UserInfoManager
 
+    private var movies: [Movie] = []
     private var cellContents: [MovieListCell.Content] = []
 
     let tableView = UITableView(frame: .zero, style: .grouped)
@@ -60,28 +61,26 @@ class MovieListViewController: UIViewController {
     }
 
     private func setupTableView() {
+        tableView.backgroundColor = .backgroundPage
+        tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = UITableView.automaticDimension
+        tableView.pinToSafeArea(of: view)
         tableView.register(
             UINib(nibName: "MovieListCell", bundle: nil),
             forCellReuseIdentifier: "MovieListCell"
         )
         dataSource = UITableViewDiffableDataSource<Int, MovieListCell.Content>(
             tableView: tableView,
-            cellProvider: { (table, index, _) -> UITableViewCell? in
+            cellProvider: { (table, index, content) -> UITableViewCell? in
                 let cell = table.dequeueReusableCell(
                     withIdentifier: "MovieListCell",
                     for: index
                 ) as? MovieListCell
-                if let content = self.cellContents.element(at: index.row) {
-                    cell?.update(content: content)
-                }
+                cell?.update(content: content)
                 return cell
             }
         )
         tableView.dataSource = dataSource
-        tableView.backgroundColor = .backgroundPage
-        tableView.separatorStyle = .none
-        tableView.estimatedRowHeight = UITableView.automaticDimension
-        tableView.pinToSafeArea(of: view)
     }
 
     private func generateSnapshot() {
@@ -91,28 +90,25 @@ class MovieListViewController: UIViewController {
         dataSource.apply(snap, animatingDifferences: true, completion: nil)
     }
 
+    private func orderCellContents(by sortType: MovieListContentGenerator.SortType) {
+        cellContents = contentGenerator.generateCellContents(
+            for: movies,
+            userInfo: userInfoManager.userInfo,
+            sortType: sortType
+        )
+        generateSnapshot()
+    }
+
     private func refreshItems(with sortType: MovieListContentGenerator.SortType) {
-        // TODO:
         movieManager.fetchAll(
             completion: { result in
                 switch result {
                 case .success(let movies):
-//                    if let id = movies.element(at: 3)?.id {
-//                        if self.userInfoManager.userInfo.watchlistMoviesIds.contains(id) {
-//                            self.userInfoManager.storeUserInfo(UserInfo(watchlistMoviesIds: [])) { _ in }
-//                        } else {
-//                            self.userInfoManager.storeUserInfo(UserInfo(watchlistMoviesIds: [id])) { _ in }
-//                        }
-//                    }
-                    self.cellContents = self.contentGenerator.generateCellContents(
-                        for: movies,
-                        userInfo: self.userInfoManager.userInfo,
-                        sortType: sortType
-                    )
+                    self.movies = movies
+                    self.orderCellContents(by: sortType)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
-                self.generateSnapshot()
             }
         )
     }
@@ -129,7 +125,7 @@ class MovieListViewController: UIViewController {
                 title: .sheetItemSortByTitle,
                 style: .default,
                 handler: { _ in
-                    self.refreshItems(with: .title)
+                    self.orderCellContents(by: .title)
                 }
             )
         )
@@ -138,7 +134,7 @@ class MovieListViewController: UIViewController {
                 title: .sheetItemSortByReleaseDate,
                 style: .default,
                 handler: { _ in
-                    self.refreshItems(with: .releaseDate)
+                    self.orderCellContents(by: .releaseDate)
                 }
             )
         )
