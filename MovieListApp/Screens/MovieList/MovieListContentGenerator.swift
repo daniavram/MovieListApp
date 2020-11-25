@@ -28,6 +28,7 @@ class MovieListContentGenerator {
             imageUrl: movie.imageUrl,
             title: formattedTitle(for: movie),
             subtitle: formattedSubtitle(for: movie),
+            tag: String.tagOnWatchlist.uppercased(),
             isOnWatchlist: userInfo.watchlistMoviesIds.contains(movie.id)
         )
     }
@@ -40,7 +41,7 @@ class MovieListContentGenerator {
         let sortCriteria: ((Movie, Movie) -> Bool) = {
             switch sortType {
             case .title:
-                return { $0.title < $1.title }
+                return { $0.title > $1.title }
             case .releaseDate:
                 return { $0.releasedDate < $1.releasedDate }
             }
@@ -81,11 +82,11 @@ class MovieListContentGenerator {
         return year
     }
 
-    private func formattedDuration(for seconds: TimeInterval) -> String {
+    private func formattedDuration(for minutes: TimeInterval) -> String {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.hour, .minute]
         formatter.unitsStyle = .short
-        let formatted = formatter.string(from: seconds) ?? ""
+        let formatted = formatter.string(from: minutes * 60) ?? ""
         return formatted
     }
 

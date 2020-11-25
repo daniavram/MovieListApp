@@ -12,14 +12,16 @@ struct UserInfo {
 }
 
 protocol UserInfoReader {
-    func fetchUserInfo(completion: @escaping (Result<UserInfo, Error>) -> Void)
+    var userInfo: UserInfo { get }
 }
 
 protocol UserInfoWritter {
     func storeUserInfo(_ userInfo: UserInfo, completion: @escaping (Result<UserInfo, Error>) -> Void)
 }
 
-class LocalUserInfoManager: UserInfoReader, UserInfoWritter {
+typealias UserInfoManager = UserInfoReader & UserInfoWritter
+
+class LocalUserInfoManager: UserInfoManager {
 
     enum LocalUserInfoManagerError: Error {
         case missingMoviesIds
@@ -33,28 +35,15 @@ class LocalUserInfoManager: UserInfoReader, UserInfoWritter {
         self.defaults = defaults
     }
 
-    func fetchUserInfo(completion: @escaping (Result<UserInfo, Error>) -> Void) {
-        if let ids = defaults.object(forKey: "watchlistMoviesIds") as? [UUID] {
-            completion(.success(UserInfo(watchlistMoviesIds: ids)))
-        } else {
-            completion(.failure(LocalUserInfoManagerError.missingMoviesIds))
-        }
+    var userInfo: UserInfo {
+        let ids = defaults.object(forKey: "watchlistMoviesIds") as? [String] ?? []
+        return UserInfo(watchlistMoviesIds: ids.compactMap { UUID(uuidString: $0) })
     }
 
     func storeUserInfo(_ userInfo: UserInfo, completion: @escaping (Result<UserInfo, Error>) -> Void) {
-        fetchUserInfo { result in
-            let initialIds: [UUID] = {
-                switch result {
-                case .success(let oldValue):
-                    return oldValue.watchlistMoviesIds
-                case .failure:
-                    return []
-                }
-            }()
-            let newIds = Array(Set(initialIds + userInfo.watchlistMoviesIds))
-            self.defaults.setValue(newIds, forKey: "watchlistMoviesIds")
-            completion(.success(UserInfo(watchlistMoviesIds: newIds)))
-        }
+        let newIds = userInfo.watchlistMoviesIds.map { $0.uuidString }
+        defaults.setValue(newIds, forKey: "watchlistMoviesIds")
+        completion(.success(UserInfo(watchlistMoviesIds: userInfo.watchlistMoviesIds)))
     }
 
 }
