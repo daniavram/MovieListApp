@@ -60,4 +60,11 @@ class MovieDetailsContentGenerator {
         }
     }
 
+    func generateDescriptionContents(for movie: Movie) -> MovieDetailsDescriptionCell.Content {
+        return MovieDetailsDescriptionCell.Content(
+            title: .sectionTitleMovieShortDescription,
+            content: movie.description
+        )
+    }
+
 }

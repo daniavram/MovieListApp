@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Lorem ipsum bla bla bla" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5FK-bF-glI">
-                        <rect key="frame" x="24" y="67.5" width="412" height="77.5"/>
+                        <rect key="frame" x="24" y="59.5" width="412" height="85.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -49,7 +49,7 @@
                     <constraint firstItem="5FK-bF-glI" firstAttribute="leading" secondItem="jtg-Ry-Bwg" secondAttribute="leading" constant="24" id="8NI-mF-n9Z"/>
                     <constraint firstItem="tcf-Gl-mke" firstAttribute="leading" secondItem="jtg-Ry-Bwg" secondAttribute="leading" constant="20" id="92D-NN-Osx"/>
                     <constraint firstAttribute="trailing" secondItem="w8X-LN-h8G" secondAttribute="trailing" constant="20" id="G4r-3u-SPF"/>
-                    <constraint firstItem="5FK-bF-glI" firstAttribute="top" secondItem="gdZ-ui-Hk2" secondAttribute="bottom" constant="16" id="GQL-5O-MNT"/>
+                    <constraint firstItem="5FK-bF-glI" firstAttribute="top" secondItem="gdZ-ui-Hk2" secondAttribute="bottom" constant="8" id="GQL-5O-MNT"/>
                     <constraint firstItem="tcf-Gl-mke" firstAttribute="top" secondItem="jtg-Ry-Bwg" secondAttribute="top" id="Lg0-te-BWa"/>
                     <constraint firstAttribute="trailing" secondItem="5FK-bF-glI" secondAttribute="trailing" constant="24" id="TNT-xP-sJc"/>
                     <constraint firstItem="gdZ-ui-Hk2" firstAttribute="leading" secondItem="jtg-Ry-Bwg" secondAttribute="leading" constant="24" id="clm-Bs-RyO"/>
@@ -59,6 +59,12 @@
                     <constraint firstAttribute="trailing" secondItem="gdZ-ui-Hk2" secondAttribute="trailing" constant="24" id="xNX-wf-MrJ"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="bottomSeparator" destination="w8X-LN-h8G" id="STm-oI-guG"/>
+                <outlet property="contentLabel" destination="5FK-bF-glI" id="aa4-Of-1nb"/>
+                <outlet property="headerLabel" destination="gdZ-ui-Hk2" id="VYe-7I-PYg"/>
+                <outlet property="topSeparator" destination="tcf-Gl-mke" id="Uz1-B1-orR"/>
+            </connections>
             <point key="canvasLocation" x="60.869565217391312" y="22.767857142857142"/>
         </tableViewCell>
     </objects>

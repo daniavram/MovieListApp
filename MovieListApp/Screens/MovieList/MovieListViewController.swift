@@ -155,7 +155,12 @@ class MovieListViewController: UITableViewController {
     }
 
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let movie = movies.element(at: indexPath.row) else { return }
+        guard
+            let movieId = cellContents.element(at: indexPath.row)?.id,
+            let movie = movies.first(where: { $0.id == movieId })
+        else {
+            return
+        }
         let details = MovieDetailsViewController(
             movie: movie,
             userInfoManager: userInfoManager

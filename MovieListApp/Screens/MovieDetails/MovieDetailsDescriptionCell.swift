@@ -9,15 +9,27 @@ import UIKit
 
 class MovieDetailsDescriptionCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    struct Content {
+        let title: String
+        let content: String
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    @IBOutlet private var topSeparator: UIView!
+    @IBOutlet private var headerLabel: UILabel!
+    @IBOutlet private var contentLabel: UILabel!
+    @IBOutlet private var bottomSeparator: UIView!
 
-        // Configure the view for the selected state
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        topSeparator.backgroundColor = .separator
+        bottomSeparator.backgroundColor = .separator
+        headerLabel.set(textStyle: .detailsSectionTitle)
+        contentLabel.set(textStyle: .detailsSectionContent)
+    }
+
+    func update(content: Content) {
+        headerLabel.text = content.title
+        contentLabel.text = content.content
     }
 
 }
