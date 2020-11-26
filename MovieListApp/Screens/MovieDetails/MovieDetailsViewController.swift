@@ -14,27 +14,27 @@ class MovieDetailsViewController: UITableViewController {
     let contentGenerator: MovieDetailsContentGenerator
 
     private lazy var headerCell: MovieDetailsHeaderCell = {
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: "MovieDetailsHeaderCell",
+        let cell = tableView.dequeue(
+            nibBackedCell: MovieDetailsHeaderCell.self,
             for: IndexPath(row: 0, section: 0)
-        ) as! MovieDetailsHeaderCell
+        )!
         cell.delegate = self
         return cell
     }()
 
     private lazy var descriptionCell: MovieDetailsDescriptionCell = {
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: "MovieDetailsDescriptionCell",
+        let cell = tableView.dequeue(
+            nibBackedCell: MovieDetailsDescriptionCell.self,
             for: IndexPath(row: 1, section: 0)
-        ) as! MovieDetailsDescriptionCell
+        )!
         return cell
     }()
 
     private lazy var detailsCell: MovieDetailsDetailsCell = {
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: "MovieDetailsDetailsCell",
+        let cell = tableView.dequeue(
+            nibBackedCell: MovieDetailsDetailsCell.self,
             for: IndexPath(row: 2, section: 0)
-        ) as! MovieDetailsDetailsCell
+        )!
         return cell
     }()
 
@@ -72,18 +72,9 @@ class MovieDetailsViewController: UITableViewController {
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.allowsSelection = false
-        tableView.register(
-            UINib(nibName: "MovieDetailsDescriptionCell", bundle: nil),
-            forCellReuseIdentifier: "MovieDetailsDescriptionCell"
-        )
-        tableView.register(
-            UINib(nibName: "MovieDetailsDetailsCell", bundle: nil),
-            forCellReuseIdentifier: "MovieDetailsDetailsCell"
-        )
-        tableView.register(
-            UINib(nibName: "MovieDetailsHeaderCell", bundle: nil),
-            forCellReuseIdentifier: "MovieDetailsHeaderCell"
-        )
+        tableView.register(nibBackedCell: MovieDetailsHeaderCell.self)
+        tableView.register(nibBackedCell: MovieDetailsDescriptionCell.self)
+        tableView.register(nibBackedCell: MovieDetailsDetailsCell.self)
         tableView.dataSource = self
         tableView.delegate = self
     }

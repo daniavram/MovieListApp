@@ -46,6 +46,7 @@
 		93D3F305256C1A2B00739DE5 /* MovieListAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3F304256C1A2B00739DE5 /* MovieListAppUITests.swift */; };
 		93F5462F2570190D00AA0DF9 /* MovieDetailsContentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5462E2570190D00AA0DF9 /* MovieDetailsContentGenerator.swift */; };
 		93F5463D257041B400AA0DF9 /* ShadowedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5463C257041B400AA0DF9 /* ShadowedImageView.swift */; };
+		93F5464525704FD800AA0DF9 /* UITableView+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5464425704FD800AA0DF9 /* UITableView+Cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		93D3F306256C1A2B00739DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93F5462E2570190D00AA0DF9 /* MovieDetailsContentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsContentGenerator.swift; sourceTree = "<group>"; };
 		93F5463C257041B400AA0DF9 /* ShadowedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedImageView.swift; sourceTree = "<group>"; };
+		93F5464425704FD800AA0DF9 /* UITableView+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Cell.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			children = (
 				9312D705256E7DE1004256F1 /* Array+ElementAt.swift */,
 				9312D714256ED063004256F1 /* TextStyle.swift */,
+				93F5464425704FD800AA0DF9 /* UITableView+Cell.swift */,
 				931A827F256C1DA700629A56 /* UIView+AutoLayout.swift */,
 			);
 			path = Helpers;
@@ -488,6 +491,7 @@
 				931A828E256C213600629A56 /* Localizations.swift in Sources */,
 				9312D6E6256D6B4A004256F1 /* NavigationController.swift in Sources */,
 				9312D741256EE9E9004256F1 /* RoundedButton.swift in Sources */,
+				93F5464525704FD800AA0DF9 /* UITableView+Cell.swift in Sources */,
 				93D3F2E3256C1A2800739DE5 /* AppDelegate.swift in Sources */,
 				9312D753256EF13C004256F1 /* MovieDetailsViewController.swift in Sources */,
 				9312D6D0256D56E3004256F1 /* Movie.swift in Sources */,

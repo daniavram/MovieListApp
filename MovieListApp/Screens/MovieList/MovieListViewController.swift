@@ -68,17 +68,11 @@ class MovieListViewController: UITableViewController {
         tableView.backgroundColor = .backgroundPage
         tableView.separatorStyle = .none
         tableView.estimatedRowHeight = UITableView.automaticDimension
-        tableView.register(
-            UINib(nibName: "MovieListCell", bundle: nil),
-            forCellReuseIdentifier: "MovieListCell"
-        )
+        tableView.register(nibBackedCell: MovieListCell.self)
         dataSource = UITableViewDiffableDataSource<Int, MovieListCell.Content>(
             tableView: tableView,
             cellProvider: { (table, index, content) -> UITableViewCell? in
-                let cell = table.dequeueReusableCell(
-                    withIdentifier: "MovieListCell",
-                    for: index
-                ) as? MovieListCell
+                let cell = table.dequeue(nibBackedCell: MovieListCell.self, for: index)
                 cell?.update(content: content)
                 return cell
             }
