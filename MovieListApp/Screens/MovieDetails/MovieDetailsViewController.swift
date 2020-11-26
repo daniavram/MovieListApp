@@ -9,11 +9,16 @@ import UIKit
 
 class MovieDetailsViewController: UITableViewController {
 
+    let movie: Movie
+    let userInfoManager: UserInfoManager
+    let contentGenerator: MovieDetailsContentGenerator
+
     private lazy var headerCell: MovieDetailsHeaderCell = {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: "MovieDetailsHeaderCell",
             for: IndexPath(row: 0, section: 0)
         ) as! MovieDetailsHeaderCell
+        cell.delegate = self
         return cell
     }()
 
@@ -32,6 +37,24 @@ class MovieDetailsViewController: UITableViewController {
         ) as! MovieDetailsDetailsCell
         return cell
     }()
+
+    init(
+        movie: Movie,
+        userInfoManager: UserInfoManager,
+        contentGenerator: MovieDetailsContentGenerator = MovieDetailsContentGenerator()
+    ) {
+        self.movie = movie
+        self.userInfoManager = userInfoManager
+        self.contentGenerator = contentGenerator
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        movie = .none
+        userInfoManager = LocalUserInfoManager()
+        contentGenerator = MovieDetailsContentGenerator()
+        super.init(coder: coder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +95,18 @@ class MovieDetailsViewController: UITableViewController {
     override func tableView(_: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
+            headerCell.update(
+                content: contentGenerator.generateHeaderContent(
+                    for: movie,
+                    userInfo: userInfoManager.userInfo
+                )
+            )
+            headerCell.update(
+                watchlistState: contentGenerator.generateWatchlistState(
+                    for: movie,
+                    userInfo: userInfoManager.userInfo
+                )
+            )
             return headerCell
         case 1:
             return descriptionCell
@@ -80,6 +115,41 @@ class MovieDetailsViewController: UITableViewController {
         default:
             return UITableViewCell()
         }
+    }
+
+}
+
+extension MovieDetailsViewController: MovieDetailsHeaderCellDelegate {
+
+    func didTapWatchlistButton(withState _: AddToWatchlistButton.WatchlistState) {
+        var ids = userInfoManager.userInfo.watchlistMoviesIds
+        if ids.contains(movie.id) {
+            ids.removeAll(where: { $0 == movie.id })
+        } else {
+            ids.append(movie.id)
+        }
+        userInfoManager.storeUserInfo(
+            UserInfo(watchlistMoviesIds: ids),
+            completion: { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success:
+                    self.headerCell.update(
+                        watchlistState: self.contentGenerator.generateWatchlistState(
+                            for: self.movie,
+                            userInfo: self.userInfoManager.userInfo
+                        )
+                    )
+                case .failure:
+                    break
+                }
+            }
+        )
+    }
+
+    func didTapTrailerButton() {
+        guard let url = movie.trailerUrl else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 
 }

@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -11,7 +12,7 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="237" id="bfT-7r-YCt" customClass="MovieDetailsHeaderCell" customModule="MovieListApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="426" height="237"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bfT-7r-YCt" id="1S5-Ml-Ift">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bfT-7r-YCt" id="1S5-Ml-Ift">
                 <rect key="frame" x="0.0" y="0.0" width="426" height="237"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -22,14 +23,14 @@
                             <constraint firstAttribute="width" constant="124" id="cd8-Y2-rIi"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="a3p-SQ-xti">
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="a3p-SQ-xti">
                         <rect key="frame" x="164" y="30" width="236" height="136.5"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="dee-YL-UBi">
-                                <rect key="frame" x="0.0" y="0.0" width="168" height="136.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="dee-YL-UBi">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="82.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="Gj3-DD-bOM">
-                                        <rect key="frame" x="0.0" y="0.0" width="168" height="82.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="Gj3-DD-bOM">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c58-yK-pxd">
                                                 <rect key="frame" x="0.0" y="0.0" width="83" height="20.5"/>
@@ -37,42 +38,46 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdi-EM-Xza" customClass="AddToWatchlistButton" customModule="MovieListApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="54.5" width="168" height="28"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="28" id="W66-eH-9mz"/>
-                                                </constraints>
-                                                <state key="normal" title="ADD TO WATCHLIST"/>
-                                                <connections>
-                                                    <action selector="buttonTapAddToWatchlist:" destination="bfT-7r-YCt" eventType="touchUpInside" id="4wr-xg-w8d"/>
-                                                </connections>
-                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.0/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drZ-Ct-D8T">
+                                                <rect key="frame" x="153.5" y="0.0" width="46.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rX-fx-NiU" customClass="WatchTrailerButton" customModule="MovieListApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="108.5" width="136" height="28"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdi-EM-Xza" customClass="AddToWatchlistButton" customModule="MovieListApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="54.5" width="168" height="28"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="B2N-M8-6uH"/>
+                                            <constraint firstAttribute="height" constant="28" id="W66-eH-9mz"/>
                                         </constraints>
-                                        <state key="normal" title="WATCH TRAILER"/>
+                                        <state key="normal" title="ADD TO WATCHLIST">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
                                         <connections>
-                                            <action selector="buttonTapWatchTrailer:" destination="bfT-7r-YCt" eventType="touchUpInside" id="0mc-S5-n1k"/>
+                                            <action selector="buttonTapAddToWatchlist:" destination="bfT-7r-YCt" eventType="touchUpInside" id="ogb-u9-K3C"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.0/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drZ-Ct-D8T">
-                                <rect key="frame" x="189.5" y="0.0" width="46.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rX-fx-NiU" customClass="WatchTrailerButton" customModule="MovieListApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="108.5" width="136" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="B2N-M8-6uH"/>
+                                </constraints>
+                                <state key="normal" title="WATCH TRAILER">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapWatchTrailer:" destination="bfT-7r-YCt" eventType="touchUpInside" id="0mc-S5-n1k"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </stackView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="fQt-zW-ZVE" firstAttribute="leading" secondItem="1S5-Ml-Ift" secondAttribute="leading" constant="22" id="CKq-rw-F6a"/>
-                    <constraint firstAttribute="bottom" secondItem="fQt-zW-ZVE" secondAttribute="bottom" constant="26" id="Cr2-Mu-neB"/>
+                    <constraint firstAttribute="bottom" secondItem="fQt-zW-ZVE" secondAttribute="bottom" priority="999" constant="26" id="Cr2-Mu-neB"/>
                     <constraint firstItem="a3p-SQ-xti" firstAttribute="leading" secondItem="fQt-zW-ZVE" secondAttribute="trailing" constant="18" id="LxJ-IG-bsm"/>
                     <constraint firstAttribute="trailing" secondItem="a3p-SQ-xti" secondAttribute="trailing" constant="26" id="dj1-sy-dMw"/>
                     <constraint firstItem="fQt-zW-ZVE" firstAttribute="top" secondItem="1S5-Ml-Ift" secondAttribute="top" constant="26" id="kTk-Y7-4xN"/>
@@ -85,9 +90,14 @@
                 <outlet property="movieTitleLabel" destination="c58-yK-pxd" id="1OT-dk-JvO"/>
                 <outlet property="posterView" destination="fQt-zW-ZVE" id="BYE-E9-hip"/>
                 <outlet property="ratingLabel" destination="drZ-Ct-D8T" id="EWs-cd-6Dk"/>
-                <outlet property="watchTrailer" destination="1rX-fx-NiU" id="RlC-Po-IYL"/>
+                <outlet property="watchTrailerButton" destination="1rX-fx-NiU" id="RlC-Po-IYL"/>
             </connections>
             <point key="canvasLocation" x="-282.60869565217394" y="-60.602678571428569"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

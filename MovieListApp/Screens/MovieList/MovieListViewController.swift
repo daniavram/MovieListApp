@@ -16,6 +16,7 @@ class MovieListViewController: UITableViewController {
     private var dataSource: UITableViewDiffableDataSource<Int, MovieListCell.Content>!
     private var movies: [Movie] = []
     private var cellContents: [MovieListCell.Content] = []
+    private var sortType: MovieListContentGenerator.SortType = .title
 
     init(
         contentGenerator: MovieListContentGenerator = MovieListContentGenerator(),
@@ -40,7 +41,12 @@ class MovieListViewController: UITableViewController {
         view.backgroundColor = .backgroundPage
         setupNavBar()
         setupTableView()
-        refreshItems(with: .title)
+        refreshItems()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshItems()
     }
 
     private func setupNavBar() {
@@ -81,29 +87,29 @@ class MovieListViewController: UITableViewController {
         tableView.delegate = self
     }
 
-    private func generateSnapshot() {
+    private func generateSnapshot(animatingDifferences: Bool) {
         var snap = NSDiffableDataSourceSnapshot<Int, MovieListCell.Content>()
         snap.appendSections([0])
         snap.appendItems(cellContents, toSection: 0)
-        dataSource.apply(snap, animatingDifferences: true, completion: nil)
+        dataSource.apply(snap, animatingDifferences: animatingDifferences, completion: nil)
     }
 
-    private func orderCellContents(by sortType: MovieListContentGenerator.SortType) {
+    private func orderCellContents(animatingDifferences: Bool) {
         cellContents = contentGenerator.generateCellContents(
             for: movies,
             userInfo: userInfoManager.userInfo,
             sortType: sortType
         )
-        generateSnapshot()
+        generateSnapshot(animatingDifferences: animatingDifferences)
     }
 
-    private func refreshItems(with sortType: MovieListContentGenerator.SortType) {
+    private func refreshItems() {
         movieManager.fetchAll(
             completion: { result in
                 switch result {
                 case .success(let movies):
                     self.movies = movies
-                    self.orderCellContents(by: sortType)
+                    self.orderCellContents(animatingDifferences: false)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
@@ -123,7 +129,8 @@ class MovieListViewController: UITableViewController {
                 title: .sheetItemSortByTitle,
                 style: .default,
                 handler: { _ in
-                    self.orderCellContents(by: .title)
+                    self.sortType = .title
+                    self.orderCellContents(animatingDifferences: true)
                 }
             )
         )
@@ -132,7 +139,8 @@ class MovieListViewController: UITableViewController {
                 title: .sheetItemSortByReleaseDate,
                 style: .default,
                 handler: { _ in
-                    self.orderCellContents(by: .releaseDate)
+                    self.sortType = .releaseDate
+                    self.orderCellContents(animatingDifferences: true)
                 }
             )
         )
@@ -147,8 +155,11 @@ class MovieListViewController: UITableViewController {
     }
 
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cellContent = cellContents.element(at: indexPath.row) else { return }
-        let details = MovieDetailsViewController()
+        guard let movie = movies.element(at: indexPath.row) else { return }
+        let details = MovieDetailsViewController(
+            movie: movie,
+            userInfoManager: userInfoManager
+        )
         navigationController?.pushViewController(details, animated: true)
     }
 

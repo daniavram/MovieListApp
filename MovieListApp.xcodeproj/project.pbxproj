@@ -45,6 +45,7 @@
 		93D3F2EF256C1A2B00739DE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93D3F2ED256C1A2B00739DE5 /* LaunchScreen.storyboard */; };
 		93D3F2FA256C1A2B00739DE5 /* MovieListAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3F2F9256C1A2B00739DE5 /* MovieListAppTests.swift */; };
 		93D3F305256C1A2B00739DE5 /* MovieListAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3F304256C1A2B00739DE5 /* MovieListAppUITests.swift */; };
+		93F5462F2570190D00AA0DF9 /* MovieDetailsContentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5462E2570190D00AA0DF9 /* MovieDetailsContentGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		93D3F300256C1A2B00739DE5 /* MovieListAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieListAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93D3F304256C1A2B00739DE5 /* MovieListAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListAppUITests.swift; sourceTree = "<group>"; };
 		93D3F306256C1A2B00739DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93F5462E2570190D00AA0DF9 /* MovieDetailsContentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsContentGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +301,7 @@
 		93D3F31A256C1B3700739DE5 /* MovieDetails */ = {
 			isa = PBXGroup;
 			children = (
+				93F5462E2570190D00AA0DF9 /* MovieDetailsContentGenerator.swift */,
 				9312D727256EDE2E004256F1 /* MovieDetailsDescriptionCell.swift */,
 				9312D736256EE21F004256F1 /* MovieDetailsDescriptionCell.xib */,
 				9312D72C256EDE42004256F1 /* MovieDetailsDetailsCell.swift */,
@@ -471,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9312D715256ED063004256F1 /* TextStyle.swift in Sources */,
+				93F5462F2570190D00AA0DF9 /* MovieDetailsContentGenerator.swift in Sources */,
 				9312D723256EDE07004256F1 /* MovieDetailsHeaderCell.swift in Sources */,
 				93D3F2E7256C1A2800739DE5 /* MovieListViewController.swift in Sources */,
 				9312D74E256EEF7F004256F1 /* WatchTrailerButton.swift in Sources */,

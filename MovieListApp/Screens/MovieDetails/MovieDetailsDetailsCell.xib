@@ -31,7 +31,7 @@
                     <constraint firstAttribute="trailing" secondItem="i8h-Ow-RCd" secondAttribute="trailing" constant="24" id="Mr2-PE-XSg"/>
                     <constraint firstItem="qDL-74-oug" firstAttribute="leading" secondItem="h4q-yg-MxL" secondAttribute="leading" constant="24" id="PVx-I5-zTO"/>
                     <constraint firstItem="i8h-Ow-RCd" firstAttribute="leading" secondItem="h4q-yg-MxL" secondAttribute="leading" constant="24" id="Ynf-Ld-bJb"/>
-                    <constraint firstAttribute="bottom" secondItem="i8h-Ow-RCd" secondAttribute="bottom" constant="30" id="avI-lQ-9wW"/>
+                    <constraint firstAttribute="bottom" secondItem="i8h-Ow-RCd" secondAttribute="bottom" priority="999" constant="30" id="avI-lQ-9wW"/>
                     <constraint firstItem="i8h-Ow-RCd" firstAttribute="top" secondItem="qDL-74-oug" secondAttribute="bottom" constant="18" id="yp0-45-P7D"/>
                 </constraints>
             </tableViewCellContentView>

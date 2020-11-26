@@ -8,7 +8,7 @@
 import Foundation
 
 struct UserInfo {
-    let watchlistMoviesIds: [UUID]
+    let watchlistMoviesIds: [String]
 }
 
 protocol UserInfoReader {
@@ -17,6 +17,8 @@ protocol UserInfoReader {
 
 protocol UserInfoWritter {
     func storeUserInfo(_ userInfo: UserInfo, completion: @escaping (Result<UserInfo, Error>) -> Void)
+    func updateUserInfo(_ userInfo: UserInfo, completion: @escaping (Result<UserInfo, Error>) -> Void)
+    func deleteUserInfo(completion: @escaping (Error?) -> Void)
 }
 
 typealias UserInfoManager = UserInfoReader & UserInfoWritter
@@ -37,13 +39,36 @@ class LocalUserInfoManager: UserInfoManager {
 
     var userInfo: UserInfo {
         let ids = defaults.object(forKey: "watchlistMoviesIds") as? [String] ?? []
-        return UserInfo(watchlistMoviesIds: ids.compactMap { UUID(uuidString: $0) })
+        return UserInfo(watchlistMoviesIds: ids)
     }
 
     func storeUserInfo(_ userInfo: UserInfo, completion: @escaping (Result<UserInfo, Error>) -> Void) {
-        let newIds = userInfo.watchlistMoviesIds.map { $0.uuidString }
-        defaults.setValue(newIds, forKey: "watchlistMoviesIds")
+        defaults.setValue(userInfo.watchlistMoviesIds, forKey: "watchlistMoviesIds")
         completion(.success(UserInfo(watchlistMoviesIds: userInfo.watchlistMoviesIds)))
+    }
+
+    func updateUserInfo(_ userInfo: UserInfo, completion: @escaping (Result<UserInfo, Error>) -> Void) {
+        let oldValues = self.userInfo.watchlistMoviesIds
+        let newValues = userInfo.watchlistMoviesIds
+        let deduplicated = Array(Set(oldValues).union(Set(newValues)))
+        storeUserInfo(
+            UserInfo(watchlistMoviesIds: deduplicated),
+            completion: completion
+        )
+    }
+
+    func deleteUserInfo(completion: @escaping (Error?) -> Void) {
+        storeUserInfo(
+            UserInfo(watchlistMoviesIds: []),
+            completion: { result in
+                switch result {
+                case .success:
+                    completion(nil)
+                case .failure(let error):
+                    completion(error)
+                }
+            }
+        )
     }
 
 }

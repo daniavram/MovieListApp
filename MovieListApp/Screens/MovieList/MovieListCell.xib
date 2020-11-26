@@ -12,7 +12,7 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="190" id="PZy-zo-afB" customClass="MovieListCell" customModule="MovieListApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="426" height="190"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PZy-zo-afB" id="1vH-0o-2KN">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PZy-zo-afB" id="1vH-0o-2KN">
                 <rect key="frame" x="0.0" y="0.0" width="426" height="190"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -67,7 +67,7 @@
                     <constraint firstItem="2GF-iK-4nU" firstAttribute="leading" secondItem="AKa-cT-CLi" secondAttribute="trailing" constant="18" id="Yae-sW-bNE"/>
                     <constraint firstAttribute="trailing" secondItem="xQN-z9-soP" secondAttribute="trailing" constant="26" id="gJc-4N-1bi"/>
                     <constraint firstAttribute="trailing" secondItem="2GF-iK-4nU" secondAttribute="trailing" constant="26" id="pLJ-DQ-GYV"/>
-                    <constraint firstAttribute="bottom" secondItem="xQN-z9-soP" secondAttribute="bottom" id="vK2-0V-iTI"/>
+                    <constraint firstAttribute="bottom" secondItem="xQN-z9-soP" secondAttribute="bottom" priority="999" id="vK2-0V-iTI"/>
                     <constraint firstItem="2GF-iK-4nU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="1vH-0o-2KN" secondAttribute="top" id="vZs-Iv-c0q"/>
                     <constraint firstItem="AKa-cT-CLi" firstAttribute="top" secondItem="1vH-0o-2KN" secondAttribute="top" constant="26" id="xL7-Ke-9dI"/>
                     <constraint firstItem="xQN-z9-soP" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2GF-iK-4nU" secondAttribute="bottom" id="zXd-Hw-6CJ"/>

@@ -8,7 +8,7 @@
 import Foundation
 
 struct Movie {
-    let id: UUID
+    let id: String
     let title: String
     let description: String
     let imageUrl: URL?
@@ -17,4 +17,20 @@ struct Movie {
     let genres: [String] // Action, Sci-Fi, etc
     let releasedDate: Date
     let trailerUrl: URL?
+}
+
+extension Movie {
+    
+    static let none = Movie(
+        id: "",
+        title: "",
+        description: "",
+        imageUrl: nil,
+        rating: 0,
+        duration: 0,
+        genres: [],
+        releasedDate: Date(),
+        trailerUrl: nil
+    )
+    
 }

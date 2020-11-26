@@ -20,10 +20,9 @@ class AddToWatchlistButton: RoundedButton {
         super.awakeFromNib()
         adjustsImageWhenHighlighted = false
         backgroundColor = .systemGray5
-        titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: .bold)
-        tintColor = .systemGray
         imageView?.contentMode = .scaleAspectFit
-        setTitleColor(.systemGray, for: .normal)
+        tintColor = TextStyle.watchlistButtonTitle.color
+        set(textStyle: .watchlistButtonTitle)
         contentEdgeInsets.left = 6
         contentEdgeInsets.right = 6
         set(state: .added)

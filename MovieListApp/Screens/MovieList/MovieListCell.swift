@@ -11,8 +11,8 @@ class MovieListCell: UITableViewCell {
 
     struct Content: Hashable {
 
-        let id: UUID
-        let imageUrl: URL?
+        let id: String
+        let image: UIImage
         let title: String
         let subtitle: String
         let tag: String
@@ -40,9 +40,7 @@ class MovieListCell: UITableViewCell {
     }
 
     func update(content: Content) {
-        if let url = content.imageUrl, let data = try? Data(contentsOf: url) {
-            posterView.image = UIImage(data: data)
-        }
+        posterView.image = content.image
         titleLabel.text = content.title
         subtitleLabel.text = content.subtitle
         tagLabel.text = content.tag

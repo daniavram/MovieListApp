@@ -13,15 +13,14 @@ class WatchTrailerButton: RoundedButton {
         super.awakeFromNib()
         backgroundColor = .backgroundPage
         layer.borderWidth = 1
-        layer.borderColor = UIColor.textDark.cgColor
-        titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: .bold)
+        layer.borderColor = TextStyle.trailerButtonTitle.color.cgColor
         contentEdgeInsets = UIEdgeInsets(
             top: 0,
             left: 14,
             bottom: 0,
             right: 14
         )
-        setTitleColor(.textDark, for: .normal)
+        set(textStyle: .trailerButtonTitle)
         setTitle(String.buttonTitleWatchTrailer.uppercased(), for: .normal)
     }
 

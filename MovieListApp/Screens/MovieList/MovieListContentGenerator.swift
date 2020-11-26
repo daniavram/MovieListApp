@@ -5,7 +5,7 @@
 //  Created by daniel.avram on 24/11/2020.
 //
 
-import Foundation
+import UIKit
 
 class MovieListContentGenerator {
 
@@ -23,9 +23,19 @@ class MovieListContentGenerator {
     }
 
     func generateCellContent(for movie: Movie, userInfo: UserInfo) -> MovieListCell.Content {
+        let cellImage: UIImage = {
+            guard
+                let url = movie.imageUrl,
+                let data = try? Data(contentsOf: url),
+                let image = UIImage(data: data)
+            else {
+                return UIImage()
+            }
+            return image
+        }()
         return MovieListCell.Content(
             id: movie.id,
-            imageUrl: movie.imageUrl,
+            image: cellImage,
             title: formattedTitle(for: movie),
             subtitle: formattedSubtitle(for: movie),
             tag: String.tagOnWatchlist.uppercased(),
