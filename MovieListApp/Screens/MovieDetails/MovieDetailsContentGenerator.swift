@@ -60,10 +60,22 @@ class MovieDetailsContentGenerator {
         }
     }
 
-    func generateDescriptionContents(for movie: Movie) -> MovieDetailsDescriptionCell.Content {
+    func generateDescriptionContent(for movie: Movie) -> MovieDetailsDescriptionCell.Content {
         return MovieDetailsDescriptionCell.Content(
             title: .sectionTitleMovieShortDescription,
             content: movie.description
+        )
+    }
+
+    func generateDetailsContent(for movie: Movie) -> MovieDetailsDetailsCell.Content {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy, d MMMM"
+        return MovieDetailsDetailsCell.Content(
+            title: .sectionTitleMovieDetails,
+            genreTitle: .sectionItemGenre,
+            genreContent: movie.genres.joined(separator: ", "),
+            releaseDateTitle: .sectionItemReleaseDate,
+            releaseDateContent: formatter.string(from: movie.releasedDate)
         )
     }
 

@@ -21,8 +21,14 @@ extension TextStyle {
         font: UIFont.systemFont(ofSize: 15, weight: .regular),
         color: .textLight
     )
-//    static let detailsColumnContent = TextStyle(font: <#T##UIFont#>, color: <#T##UIColor#>)
-//    static let detailsColumnTitle = TextStyle(font: <#T##UIFont#>, color: <#T##UIColor#>)
+    static let detailsColumnContent = TextStyle(
+        font: UIFont.systemFont(ofSize: 13, weight: .regular),
+        color: .textLight
+    )
+    static let detailsColumnTitle = TextStyle(
+        font: UIFont.systemFont(ofSize: 13, weight: .medium),
+        color: .textDark
+    )
     static let detailsSectionContent = TextStyle(
         font: UIFont.systemFont(ofSize: 13, weight: .regular),
         color: .textLight

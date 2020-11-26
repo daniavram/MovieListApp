@@ -9,15 +9,35 @@ import UIKit
 
 class MovieDetailsDetailsCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    struct Content {
+        let title: String
+        let genreTitle: String
+        let genreContent: String
+        let releaseDateTitle: String
+        let releaseDateContent: String
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    @IBOutlet private var headerLabel: UILabel!
+    @IBOutlet private var genreTitleLabel: UILabel!
+    @IBOutlet private var genreContentLabel: UILabel!
+    @IBOutlet private var releaseDateTitleLabel: UILabel!
+    @IBOutlet private var releaseDateContentLabel: UILabel!
 
-        // Configure the view for the selected state
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        headerLabel.set(textStyle: .detailsSectionTitle)
+        genreTitleLabel.set(textStyle: .detailsColumnTitle)
+        genreContentLabel.set(textStyle: .detailsColumnContent)
+        releaseDateTitleLabel.set(textStyle: .detailsColumnTitle)
+        releaseDateContentLabel.set(textStyle: .detailsColumnContent)
+    }
+
+    func update(content: Content) {
+        headerLabel.text = content.title
+        genreTitleLabel.text = content.genreTitle
+        genreContentLabel.text = content.genreContent
+        releaseDateTitleLabel.text = content.releaseDateTitle
+        releaseDateContentLabel.text = content.releaseDateContent
     }
 
 }

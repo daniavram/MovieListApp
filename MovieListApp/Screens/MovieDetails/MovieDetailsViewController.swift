@@ -110,12 +110,17 @@ class MovieDetailsViewController: UITableViewController {
             return headerCell
         case 1:
             descriptionCell.update(
-                content: contentGenerator.generateDescriptionContents(
+                content: contentGenerator.generateDescriptionContent(
                     for: movie
                 )
             )
             return descriptionCell
         case 2:
+            detailsCell.update(
+                content: contentGenerator.generateDetailsContent(
+                    for: movie
+                )
+            )
             return detailsCell
         default:
             return UITableViewCell()
