@@ -9,7 +9,7 @@ import UIKit
 
 class MovieListCell: UITableViewCell {
 
-    struct Content: Hashable {
+    struct Content: Hashable, Equatable {
 
         let id: String
         let image: UIImage
@@ -21,6 +21,11 @@ class MovieListCell: UITableViewCell {
         func hash(into hasher: inout Hasher) {
             hasher.combine(id)
             hasher.combine(isOnWatchlist)
+        }
+
+        static func == (lhs: Content, rhs: Content) -> Bool {
+            return lhs.id == rhs.id
+                && lhs.isOnWatchlist == rhs.isOnWatchlist
         }
 
     }
