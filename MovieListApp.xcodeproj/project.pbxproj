@@ -36,7 +36,6 @@
 		9312D74E256EEF7F004256F1 /* WatchTrailerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312D74D256EEF7F004256F1 /* WatchTrailerButton.swift */; };
 		9312D753256EF13C004256F1 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9312D752256EF13C004256F1 /* MovieDetailsViewController.swift */; };
 		931A8280256C1DA700629A56 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A827F256C1DA700629A56 /* UIView+AutoLayout.swift */; };
-		931A8288256C1FE300629A56 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A8287256C1FE300629A56 /* XibView.swift */; };
 		931A828E256C213600629A56 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A828D256C213600629A56 /* Localizations.swift */; };
 		93D3F2E3256C1A2800739DE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3F2E2256C1A2800739DE5 /* AppDelegate.swift */; };
 		93D3F2E5256C1A2800739DE5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3F2E4256C1A2800739DE5 /* SceneDelegate.swift */; };
@@ -46,6 +45,7 @@
 		93D3F2FA256C1A2B00739DE5 /* MovieListAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3F2F9256C1A2B00739DE5 /* MovieListAppTests.swift */; };
 		93D3F305256C1A2B00739DE5 /* MovieListAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3F304256C1A2B00739DE5 /* MovieListAppUITests.swift */; };
 		93F5462F2570190D00AA0DF9 /* MovieDetailsContentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5462E2570190D00AA0DF9 /* MovieDetailsContentGenerator.swift */; };
+		93F5463D257041B400AA0DF9 /* ShadowedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F5463C257041B400AA0DF9 /* ShadowedImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,7 +95,6 @@
 		9312D74D256EEF7F004256F1 /* WatchTrailerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTrailerButton.swift; sourceTree = "<group>"; };
 		9312D752256EF13C004256F1 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		931A827F256C1DA700629A56 /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
-		931A8287256C1FE300629A56 /* XibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
 		931A828D256C213600629A56 /* Localizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizations.swift; sourceTree = "<group>"; };
 		93D3F2DF256C1A2800739DE5 /* MovieListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93D3F2E2256C1A2800739DE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +110,7 @@
 		93D3F304256C1A2B00739DE5 /* MovieListAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListAppUITests.swift; sourceTree = "<group>"; };
 		93D3F306256C1A2B00739DE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93F5462E2570190D00AA0DF9 /* MovieDetailsContentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsContentGenerator.swift; sourceTree = "<group>"; };
+		93F5463C257041B400AA0DF9 /* ShadowedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,9 +316,9 @@
 		93D3F31B256C1B5F00739DE5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				931A8287256C1FE300629A56 /* XibView.swift */,
-				9312D740256EE9E9004256F1 /* RoundedButton.swift */,
 				9312D748256EEA9A004256F1 /* AddToWatchlistButton.swift */,
+				9312D740256EE9E9004256F1 /* RoundedButton.swift */,
+				93F5463C257041B400AA0DF9 /* ShadowedImageView.swift */,
 				9312D74D256EEF7F004256F1 /* WatchTrailerButton.swift */,
 			);
 			path = Components;
@@ -480,6 +480,7 @@
 				9312D74E256EEF7F004256F1 /* WatchTrailerButton.swift in Sources */,
 				9312D6EB256D6B8E004256F1 /* Colors.swift in Sources */,
 				9312D728256EDE2E004256F1 /* MovieDetailsDescriptionCell.swift in Sources */,
+				93F5463D257041B400AA0DF9 /* ShadowedImageView.swift in Sources */,
 				9312D6F5256D9C2A004256F1 /* MovieListCell.swift in Sources */,
 				931A8280256C1DA700629A56 /* UIView+AutoLayout.swift in Sources */,
 				9312D6F0256D96DB004256F1 /* MovieListContentGenerator.swift in Sources */,
@@ -489,7 +490,6 @@
 				9312D741256EE9E9004256F1 /* RoundedButton.swift in Sources */,
 				93D3F2E3256C1A2800739DE5 /* AppDelegate.swift in Sources */,
 				9312D753256EF13C004256F1 /* MovieDetailsViewController.swift in Sources */,
-				931A8288256C1FE300629A56 /* XibView.swift in Sources */,
 				9312D6D0256D56E3004256F1 /* Movie.swift in Sources */,
 				9312D72D256EDE42004256F1 /* MovieDetailsDetailsCell.swift in Sources */,
 				9312D6FA256D9ED3004256F1 /* UserInfoManager.swift in Sources */,

@@ -22,7 +22,7 @@ class MovieDetailsHeaderCell: UITableViewCell {
         let isTrailerButtonHidden: Bool
     }
 
-    @IBOutlet private var posterView: UIImageView!
+    @IBOutlet private var posterView: ShadowedImageView!
     @IBOutlet private var movieTitleLabel: UILabel!
     @IBOutlet private var ratingLabel: UILabel!
     @IBOutlet private var addToWatchlistButton: AddToWatchlistButton!

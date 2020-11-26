@@ -25,7 +25,7 @@ class MovieListCell: UITableViewCell {
 
     }
 
-    @IBOutlet private var posterView: UIImageView!
+    @IBOutlet private var posterView: ShadowedImageView!
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var subtitleLabel: UILabel!
     @IBOutlet private var tagLabel: UILabel!
